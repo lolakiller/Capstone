@@ -83,8 +83,8 @@ class ExampleApp extends React.Component{
   render(){
     return(
       <div>
-          <button name="login" onClick={this.openModal}> Login in! </button>
-          <button name="signup" onClick={this.openModal}> Sign up! </button>
+          <button id="login-btn" name="login" onClick={this.openModal}> Log in! </button>
+          <button id="signup-btn" name="signup" onClick={this.openModal}> Sign up! </button>
           <Modal
             isOpen={this.state.modalIsOpen}
             onRequestClose={this.closeModal}

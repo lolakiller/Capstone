@@ -6,7 +6,7 @@ export default function Snake(p, scl) {
   this.tail = [];
   this.points = 0;
 
-  this.dir = function(x, y) {
+ this.dir = function(x, y) {
     if (x != 0 && this.xspeed != x * (-1)
         || y != 0 && this.yspeed != y * (-1)) {
       this.xspeed = x;
@@ -14,16 +14,16 @@ export default function Snake(p, scl) {
     }
   }
 
-  this.eat = function(food) {
+ this.eat = function(food) {
 
-    if (this.x === food.x() && this.y === food.y()) {
+   if (this.x === food.x() && this.y === food.y()) {
       food.eaten();
       this.points++;
       this.tail.push(p.createVector(this.x, this.y));
     }
   }
 
-  this.move = function() {
+ this.move = function() {
     // put last square of tail in front of the line
     if (this.tail.length > 0) {
       var tipOfTail = this.tail.pop();
@@ -32,15 +32,15 @@ export default function Snake(p, scl) {
       this.tail.unshift(tipOfTail);
     }
 
-    // move head
+   // move head
     this.x += this.xspeed * scl;
     this.y += this.yspeed * scl;
 
-    // wrap around right and bottom edges
+   // wrap around right and bottom edges
     this.x %= p.width;
     this.y %= p.height;
 
-    // wrap around left and top edges
+   // wrap around left and top edges
     if (this.x < 0) {
       this.x = p.width - scl;
     }
@@ -49,7 +49,7 @@ export default function Snake(p, scl) {
     }
   }
 
-  this.draw = function() {
+ this.draw = function() {
     p.fill(255);
     p.rect(this.x, this.y, scl, scl);
     for(var i = 0; i < this.tail.length; i++) {
