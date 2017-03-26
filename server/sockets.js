@@ -15,7 +15,7 @@ module.exports = function (io) {
     this.points = points
   }
 
-  // use socket server as an event emitter in order to listen for new connctions
+  // use socket server as an event emitter in order to listen for new connections
   io.sockets.on('connection', function (socket) {
     console.log(chalk.yellow('We have a new user: ' + socket.id))
 
@@ -31,6 +31,7 @@ module.exports = function (io) {
 
     // update the snake information for specific user everytime they change
     socket.on('clientUpdate', function (data) {
+      console.log('receiving!!!')
       var snake = snakes[socket.id]
       snake.x = data.snakeUpdatedData.x
       snake.y = data.snakeUpdatedData.y
@@ -46,25 +47,37 @@ module.exports = function (io) {
 
     // handle mobile devices
     socket.on('mobile-device', function (device) {
-      console.log('Device', device)
-      var connected = true
-      if (device) {
-        connected = true
-        io.sockets.emit('activate-device-controls', connected)
-      } else {
-        connected = false
-        io.sockets.emit('activate-device-controls', connected)
+      function detectPhone() {
+       if (device.match(/Android/i)
+       || device.match(/webOS/i)
+       || device.match(/iPhone/i)
+       || device.match(/iPad/i)
+       || device.match(/iPod/i)
+       || device.match(/BlackBerry/i)
+       || device.match(/Windows Phone/i)
+        ) {return true;}
+       else {return false;}
       }
-    })
+
+      const isPhone = detectPhone(device);
+      console.log('inside on mobile-device; device =', device)
+      console.log('inside on mobile-device; device =', device, 'isPhone =', isPhone)
+      if (isPhone === true) {
+        io.sockets.emit('activate-device-controls', true)
+      } 
+      // else {
+      //   io.sockets.emit('activate-device-controls', true)
+      // }
+   })
 
     // receive mobile device information
-    socket.on('snake_position_change', function (position) {
+    //socket.on('snake_position_change', function (position) {
       // console.log('SNAKE POSITION', position)
-    })
+    //})
 
     // event that runs anytime a socket disconnects
     socket.on('disconnect', function () {
-      console.log('socket id ' + socket.id + ' has disconnected. :(')
+      console.log(chalk.yellow('socket id ' + socket.id + ' has disconnected. :('))
       delete snakes[socket.id]
     })
   })

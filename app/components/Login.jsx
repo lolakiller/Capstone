@@ -5,7 +5,7 @@ export const Login = ({ login }) => (
   <form onSubmit={evt => {
     evt.preventDefault()
     login(evt.target.username.value, evt.target.password.value)
-    browserHistory.push('/interstitial')
+    browserHistory.push('/controller')
   } }>
     <input name="username" />
     <input name="password" type="password" />

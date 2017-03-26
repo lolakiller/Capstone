@@ -7,6 +7,7 @@ api
   .get('/heartbeat', (req, res) => res.send({ok: true,}))
   .use('/auth', require('./auth'))
   .use('/users', require('./users'))
+  .use('/int', require('./int'))
   //.use('/player', require('./player'))
 
 // No routes matched? 404.

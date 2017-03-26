@@ -24,10 +24,10 @@
     border: 2px solid white;
 }
 
-/*canvas {
+canvas {
     width: 100vw !important;
     height: 100vh !important;
-}*/
+}
 
 body {
     padding: 0;
@@ -52,6 +52,54 @@ body {
 
 }
 
+button.controller{
+  height:50px !important;
+  width:50px !important;
+}
+
+
+button#up{
+  display:block;
+  margin-left:25px;
+  cursor: pointer;
+}
+
+button#down{
+  display:block;
+  margin-left:25px;
+}
+
+button#speed{
+  background-color:red;
+  border-radius: 50%;
+  height:60px;
+  width:60px;
+  margin-top:25px;
+}
+
+#login-btn{
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  border-radius: 20px;
+}
+#login-btn:hover {background-color: #3e8e41}
+#login-btn:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+#signup-btn{
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  border-radius: 20px;
+}
+#signup-btn:hover{background-color: #3e8e41}
+#signup-btn:active{
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
 #parent-div{
     position:relative;
 }
+

@@ -122,14 +122,14 @@ passport.use(new (require('passport-local').Strategy) (
 auth.get('/whoami', (req, res) => res.send(req.user))
 
 // POST requests for local login:
-auth.post('/login/local', passport.authenticate('local', { successRedirect: '/interstitial', }))
+auth.post('/login/local', passport.authenticate('local', { successRedirect: '/controller', }))
 
 // GET requests for OAuth login:
 // Register this route as a callback URL with OAuth provider
 auth.get('/login/:strategy', (req, res, next) =>
   passport.authenticate(req.params.strategy, {
     scope: 'email',
-    successRedirect: '/interstitial',
+    successRedirect: '/controller',
     // Specify other config here, such as "scope"
   })(req, res, next)
 )
