@@ -14,6 +14,7 @@ export const updateSnakePoints = snake => ({
 })
 
 export const getSnakes = snakes => ({
+  // console.log("INSIDE ACTION CREATOR: ", snakes)
   type: GET_SNAKES,
   snakes
 })

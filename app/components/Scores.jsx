@@ -6,7 +6,6 @@ export default class Scores extends Component {
   }
 
   render(){
-    console.log('SNAKEPROPS', this.props.snakes.list)
     var snakesIds = this.props.snakes.list && Object.keys(this.props.snakes.list);
 
     return (
