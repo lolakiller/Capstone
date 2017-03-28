@@ -1,7 +1,6 @@
 // want to be able to see each snakes points.
 
 /* ------- ACTIONS -------- */
-// const GET_SNAKES = "GET_SNAKES"
 const UPDATE_SNAKE_POINTS = "UPDATE_SNAKE_POINTS"
 const GET_SNAKES = "GET_SNAKES"
 const GET_SNAKE = "GET_SNAKE"
@@ -38,7 +37,7 @@ const initialSnakesState = {
 
 
 /* --------------- REDUCER ----------------- */
-export default function (state = initialSnakesState, action){
+const snakeReducer = (state = initialSnakesState, action) => {
   const newState = Object.assign({}, state);
 
   switch(action.type){
@@ -59,3 +58,5 @@ export default function (state = initialSnakesState, action){
   }
   return newState
 }
+
+export default snakeReducer

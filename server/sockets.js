@@ -2,8 +2,7 @@ const chalk = require('chalk')
 
 module.exports = function (io) {
   // users obj to keep track of all the connected users
-  const users = []
-
+  var users = []
   // use socket server as an event emitter in order to listen for new connections
   io.sockets.on('connection', function (socket) {
     console.log(chalk.yellow('We have a new user: ' + socket.id))
@@ -20,7 +19,18 @@ module.exports = function (io) {
             device.match(/Windows Phone/i)
         ) {
           // if its a mobile device push it to the users array
-          users.push(socket.id)
+          users.push({id: socket.id})
+          var colorKey = 0;
+          var colors = ["blue", "yellow", "purple", "green"]
+          users.map(function(user){
+            user.colorName = colors[colorKey]
+            if (colorKey > 2){
+              colorKey %= 2
+            }
+            else{
+              colorKey += 1
+            }
+          })
           return 'mobile'
         } else {
           return 'computer'
@@ -31,12 +41,13 @@ module.exports = function (io) {
       // connected and then emit to the sketch so the match starts
       const deviceType = detectDevice(device)
       io.sockets.emit('send-device-type', {deviceType, users})
+
+      io.sockets.emit('get-current-users', users)
     })
 
     socket.on('get-snake', function(){
       return socket.id
     })
-
     // update the snake position according the touch event on the mobile screen
     socket.on('user-movement-update', function (data) {
       const userId = socket.id

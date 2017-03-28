@@ -26,5 +26,5 @@ const intReducer = (state = initialUsersState, action) => {
   }
   return newState
 }
-
 export default intReducer
+

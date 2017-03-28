@@ -84,7 +84,7 @@ const mapDispatchToProps = (dispatch) => {
 
     signupNewUser (user, email, password) {
       dispatch(signup(user, email, password))
-      browserHistory.push('/interstitial')
+      browserHistory.push('/controller')
     }
 
   }

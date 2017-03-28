@@ -32,3 +32,10 @@ export default class Scores extends Component {
     )
   }
 }
+
+
+
+
+
+
+

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import io from 'socket.io-client'
 
 const socket = io.connect('http://192.168.2.167:1337')
+
 const device = window.navigator.userAgent
 
 export default class Controller extends Component {
@@ -52,17 +53,17 @@ export default class Controller extends Component {
 
   render () {
     return (
-      <div ref="nv">
-          <button id='up' className='ui-btn' className='controller'>
+      <div className='col-1'>
+          <button id='up' className='controller'>
               <span className='glyphicon glyphicon-chevron-up'></span>
           </button>
-          <button id='left' className='ui-btn' className="controller">
+          <button id='left' className='controller'>
                   <span className='glyphicon glyphicon-chevron-left'></span>
           </button>
-          <button id='right' className='ui-btn' className="controller">
+          <button id='right' className='controller'>
                   <span className='glyphicon glyphicon-chevron-right'></span>
           </button>
-          <button id='down' className='ui-btn' className="controller">
+          <button id='down' className='controller'>
                   <span className='glyphicon glyphicon-chevron-down'></span>
           </button>
       </div>

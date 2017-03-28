@@ -14,14 +14,6 @@ import Controller from './components/Controller'
 import LandingPage from './components/LandingPage'
 import UserLogin from './components/UserLogin'
 import { getSnake } from './reducers/snakes'
-// import io from 'socket.io-client'
-// const socket = io.connect('http://192.168.0.8:1337')
-
-// const onUserLoginEnter = () => {
-//   var snake = socket.emit('get-snake')
-//   console.log(snake.socket.id)
-//   // store.dispatch(getSnake())
-// }
 
 render(
   <Provider store={store}>
