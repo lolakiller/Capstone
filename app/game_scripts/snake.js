@@ -12,7 +12,7 @@ export default function Snake (p, user, colorName) {
   this.tail = []
   this.points = 0
   this.name = colorName
-  this.color = colors[colorName]
+  this.color = colorName
   this.visible = true
 }
 
@@ -72,7 +72,7 @@ Snake.prototype.move = function (p) {
 
 Snake.prototype.draw = function (p) {
   if (this.visible) {
-    p.fill(p.color(this.color))
+    p.fill(this.color)
     p.rect(this.x, this.y, scl, scl)
     for (var i = 0; i < this.tail.length; i++) {
       p.rect(this.tail[i].x, this.tail[i].y, scl, scl)

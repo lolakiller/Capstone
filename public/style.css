@@ -1,3 +1,4 @@
+
 @font-face {
     font-family: 'pixeledregular';
     src: url('pixeled-webfont.woff2') format('woff2'),
@@ -38,6 +39,7 @@ body {
 }
 
 #main{
+  padding:100px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -125,6 +127,7 @@ button#left{
   animation-iteration-count: infinite;
  
 }
+
 #left:active {
   background-color: #3e8e41;
   box-shadow: 0 5px #666;
@@ -314,9 +317,9 @@ button#left{
 #leaderboard{
   border:1px solid yellow;
   color:yellow;
-  display:inline-flex;
+  display:inline-block;
   padding:20px;
-  position:absolute;
+  /*position: right;*/
   right:100px;
   opacity:.3;
 }
@@ -334,7 +337,7 @@ button#left{
 }
 
 .purple{
-  color: #8e66d9 !important;
+  color: aqua;
 }
 
 .green{
